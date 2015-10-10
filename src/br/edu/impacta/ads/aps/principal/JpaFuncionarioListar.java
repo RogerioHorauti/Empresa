@@ -4,6 +4,7 @@ import br.edu.impacta.ads.aps.jpa.dao.FuncionarioDao;
 import br.edu.impacta.ads.aps.jpa.model.Funcionario;
 import java.util.List;
 
+//Listar os funcionários
 public class JpaFuncionarioListar {
     public static void main(String[] args) {
         

@@ -47,6 +47,7 @@ public class CargoDao implements GenericoDao<Cargo>{
 
     @Override
     public List<Cargo> listar() {
+        
         List<Cargo> cargos = new ArrayList();
                
         EntityManager entityManager = Conexao.getEntityManager();
@@ -55,6 +56,19 @@ public class CargoDao implements GenericoDao<Cargo>{
         entityManager.close();
         
         return cargos;
+    }
+    
+    //Buscar o cargo pelo codigo
+    public Cargo id(final Integer codigo) {
+        
+        EntityManager entityManager = Conexao.getEntityManager();
+           
+        Cargo cargo = entityManager.find(Cargo.class, codigo);
+        
+        entityManager.getTransaction().begin();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return cargo;
     }
     
 }

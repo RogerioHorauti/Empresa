@@ -58,5 +58,16 @@ public class FuncionarioDao implements GenericoDao<Funcionario>{
         entityManager.close(); 
     }
     
-    
+    //Buscar o cargo pelo codigo
+    public Funcionario id(final Integer codigo) {
+        
+        EntityManager entityManager = Conexao.getEntityManager();
+           
+        Funcionario func = entityManager.find(Funcionario.class, codigo);
+        
+        entityManager.getTransaction().begin();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return func;
+    }
 }

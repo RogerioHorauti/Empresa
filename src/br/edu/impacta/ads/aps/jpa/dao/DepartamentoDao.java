@@ -58,4 +58,17 @@ public class DepartamentoDao implements GenericoDao<Departamento>{
         return deps;
     }
     
+    //Buscar o cargo pelo codigo
+    public Departamento id(final Integer codigo) {
+        
+        EntityManager entityManager = Conexao.getEntityManager();
+           
+        Departamento dep = entityManager.find(Departamento.class, codigo);
+        
+        entityManager.getTransaction().begin();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return dep;
+    }
+    
 }

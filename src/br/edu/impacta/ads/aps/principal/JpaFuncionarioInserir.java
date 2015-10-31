@@ -21,7 +21,8 @@ public class JpaFuncionarioInserir {
         func.setCargo(cargo);
         Departamento dep = new Departamento();
         dep.setCodigo(2);
-        func.setDepartamento(dep);           
+        func.setDepartamento(dep); 
+        
         SimpleDateFormat formData = new SimpleDateFormat("dd/MM/yyyy");
         Calendar data = new GregorianCalendar();      
         try {
@@ -29,7 +30,8 @@ public class JpaFuncionarioInserir {
         } catch (java.text.ParseException ex) {
             Logger.getLogger(JpaFuncionarioInserir.class.getName()).log(Level.SEVERE, null, ex);
         }       
-        func.setDataContratacao(data);       
+        func.setDataContratacao(data); 
+        
         FuncionarioDao dao = new FuncionarioDao();
         dao.inserir(func);
     }

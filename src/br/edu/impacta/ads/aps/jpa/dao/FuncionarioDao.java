@@ -5,6 +5,8 @@ import br.edu.impacta.ads.aps.jpa.model.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 public class FuncionarioDao implements GenericoDao<Funcionario>{
 
@@ -59,15 +61,14 @@ public class FuncionarioDao implements GenericoDao<Funcionario>{
     }
     
     //Buscar o cargo pelo codigo
-    public Funcionario id(final Integer codigo) {
+    public List<Funcionario> id(final Integer codigo) {
         
         EntityManager entityManager = Conexao.getEntityManager();
-           
-        Funcionario func = entityManager.find(Funcionario.class, codigo);
         
-        entityManager.getTransaction().begin();
-        entityManager.getTransaction().commit();
+        List<Funcionario> funcs = new ArrayList<>();
+        funcs = entityManager.createQuery("SELECT f FROM Funcionario f where f.codigo="+codigo).getResultList();
+        
         entityManager.close();
-        return func;
+        return funcs;
     }
 }

@@ -14,12 +14,15 @@ public class JpaFuncionarioAlterar {
     public static void main(String[] args) {
         
         Funcionario func = new Funcionario();       
-        func.setCodigo(1041);
+        func.setCodigo(1040);
         Cargo cargo = new Cargo();
-        cargo.setCodigo(8);
+        int codigo;
+        codigo = Integer.parseInt("8");
+        cargo.setCodigo(codigo);
         func.setCargo(cargo);
         Departamento dep = new Departamento();
-        dep.setCodigo(3);
+        codigo = Integer.parseInt("3");
+        dep.setCodigo(codigo);
         func.setDepartamento(dep);
         func.setNome("Kazuo Horauti");                      
         SimpleDateFormat formData = new SimpleDateFormat("dd/MM/yyyy");
